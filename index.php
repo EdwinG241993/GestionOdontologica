@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edit this template
--->
+
 <html>
     <head>
         <meta charset="UTF-8">
@@ -10,7 +7,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
     </head>
     <body>
         <?php
-        // put your code here
+        if (isset($_GET['accion'])) {
+            if ($_GET['accion'] == 'asignar') {
+                require_once './Vista/html/asignar.php';
+            }
+            if ($_GET['accion'] == 'consultar') {
+                require_once './Vista/html/consultar.php';
+            }
+            if ($_GET['accion'] == 'cancelar') {
+                require_once './Vista/html/cancelar.php';
+            }
+        } else {
+            require_once './Vista/html/inicio.php';
+        }
         ?>
     </body>
 </html>
