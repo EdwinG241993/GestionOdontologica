@@ -35,8 +35,8 @@
                             <td>
                                 <select id="medico" name="medico">
                                     <option value="-1" selected="selected">---Seleccionar Medico---</option>
-                                    <option value="1088799">1088799 Edwin Guanaran</option>
-                                    <option value="1079908">1079908 Alejandra Bolaños</option>
+                                    <option value="12345">12345 Camilo Robledo</option>
+                                    <option value="67890">67890 Esteban Salgado</option>
                                 </select>
                             </td>
                         </tr>
@@ -51,7 +51,7 @@
                                     <option value="-1" selected="selected">---Seleccione la hora---</option>
                                     <option>08:00:00</option>
                                     <option>08:20:00</option>
-                                    <option>08:10:00</option>
+                                    <option>08:40:00</option>
                                     <option>09:00:00</option>
                                 </select>
                             </td>

@@ -12,8 +12,8 @@ class Conexion {
     private $citaId;
 
     public function abrir() {
-        $this->mySQLI = new mysqli("localhost", "root", "12345", "citas");
-        if (mysqli_connect_error()) {
+        $this->mySQLI = new mysqli("localhost", "root", "", "citas");
+        if (mysqli_connect_errno()) {
             return 0;
         } else {
             return 1;
@@ -27,7 +27,7 @@ class Conexion {
     public function consulta($sql) {
         $this->sql = $sql;
         $this->result = $this->mySQLI->query($this->sql);
-        $this->filasAfectadas = $this->mySQLI->affected - rows;
+        $this->filasAfectadas = $this->mySQLI->affected_rows;
         $this->citaId = $this->mySQLI->insert_id;
     }
 

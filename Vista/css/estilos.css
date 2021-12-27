@@ -67,3 +67,7 @@ h2 {
     background-color: #7092BE;
 }
 
+table {
+  border-collapse: collapse;
+}
+
