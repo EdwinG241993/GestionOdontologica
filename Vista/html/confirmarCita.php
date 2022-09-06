@@ -9,6 +9,7 @@
     <body>
         <div id="contenedor">
             <div id="encabezado">
+                <h1>Sistema de Gestion Odontologica</h1>
             </div>
             <ul id="menu">
                 <li><a href="index.php">Inicio</a></li>
@@ -57,7 +58,7 @@
                     </tr>
                     <tr>
                         <td>Nombre Consultorio:</td>
-                        <td><?php echo $fila->ConNombres; ?></td>
+                        <td><?php echo $fila->ConNombre; ?></td>
                     </tr>
                     <tr>
                         <td>Estado:</td>

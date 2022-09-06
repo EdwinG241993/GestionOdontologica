@@ -12,7 +12,7 @@ class Conexion {
     private $citaId;
 
     public function abrir() {
-        $this->mySQLI = new mysqli("localhost", "root", "", "citas");
+        $this->mySQLI = new mysqli("localhost:3307", "root", "", "citas2");
         if (mysqli_connect_errno()) {
             return 0;
         } else {

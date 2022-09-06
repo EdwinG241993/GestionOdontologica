@@ -61,8 +61,8 @@
                             <td>
                                 <select id="consultorio" name="consultorio">
                                     <option value="-1" selected="selected">---Seleccionar el consultorio---</option>
-                                    <option value="1">1 Consultas1</option>
-                                    <option value="2">2 Tratamientos2</option>
+                                    <option value="0">0 Consultas1</option>
+                                    <option value="1">1 Tratamientos2</option>
                                 </select>
                             </td>
                         </tr>
