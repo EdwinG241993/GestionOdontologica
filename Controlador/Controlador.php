@@ -28,4 +28,10 @@ class Controlador {
         $result = $gestorCita->consultarCitasPorDocumento($doc);
         require_once "Vista/html/cancelarCitas.php";
     }
+
+    public function consultarPaciente($doc) {
+        $gestorCita = new GestorCita();
+        $result = $gestorCita->consultarPaciente($doc);
+        require_once "Vista/html/consultarPaciente.php";
+    }
 }

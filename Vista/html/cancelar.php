@@ -5,6 +5,8 @@
         <meta charset="UTF-8">
         <title>Sistema de Gestion Odontologica</title>
         <link rel="stylesheet" type="text/css" href="Vista/css/estilos.css"/>
+        <script type="text/javascript" src="Vista/jquery/jquery-3.6.1.min.js"></script>
+        <script type="text/javascript" src="Vista/js/script.js"></script>
     </head>
     <body>
         <div id="contenedor">

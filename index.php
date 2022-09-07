@@ -22,6 +22,10 @@ if ($_GET['accion'] == "asignar") {
     $controlador->consultarCitas($_POST["consultarDocumento"]);
 } elseif ($_GET['accion'] == "cancelarCita") {
     $controlador->cancelarCitas($_POST["cancelarDocumento"]);
+} elseif ($_GET['accion'] == "consultarPaciente") {
+
+    print_r($_GET['documento']);
+    $controlador->consultarPaciente($_GET['documento']);
 } else {
     $controlador->verPagina('./Vista/html/inicio.php');
 }

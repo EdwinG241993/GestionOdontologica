@@ -50,7 +50,7 @@ class GestorCita {
     public function consultarPaciente($doc) {
         $conexion = new Conexion();
         $conexion->abrir();
-        $sql = "SELECT FROM pacientes WHERE PacIdentificacion = '$doc'";
+        $sql = "SELECT * FROM pacientes WHERE PacIdentificacion = '$doc'";
         $conexion->consulta($sql);
         $result = $conexion->obtenerResult();
         $conexion->cerrar();
