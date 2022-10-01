@@ -3,6 +3,7 @@
 /**
  * @author Edwin
  */
+
 class Paciente {
 
     private $identificacion;
@@ -40,5 +41,3 @@ class Paciente {
     }
 
 }
-
-?>

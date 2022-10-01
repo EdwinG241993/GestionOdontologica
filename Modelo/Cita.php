@@ -3,6 +3,7 @@
 /**
  * @author Edwin
  */
+
 class Cita {
 
     private $numero;
@@ -56,5 +57,4 @@ class Cita {
     public function obtenerObservaciones() {
         return $this->observaciones;
     }
-
 }

@@ -4,6 +4,8 @@
     <head>
         <meta charset="UTF-8">
         <title>Sistema de Gestion Odontologica</title>
+
+        <!-- Hojas de Estilos CSS -->
         <link rel="stylesheet" type="text/css" href="Vista/css/estilos.css"/>
     </head>
     <body>
@@ -67,6 +69,11 @@
                     <tr>
                         <td>Observaciones:</td>
                         <td><?php echo $fila->CitObservaciones; ?></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <a href="index.php?accion=reporte$numero=<?php echo $fila->CitNumero; ?>" target="blank">Generar Reporte</a>
+                        </td>
                     </tr>
                 </table>
             </div>

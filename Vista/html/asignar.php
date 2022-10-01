@@ -4,9 +4,15 @@
     <head>
         <meta charset="UTF-8">
         <title>Sistema de Gestion Odontologica</title>
+
+        <!-- Hojas de Estilos CSS -->
         <link rel="stylesheet" type="text/css" href="Vista/css/estilos.css"/>
-        <script type="text/javascript" src="Vista/jquery/jquery-3.6.1.min.js"></script>
-        <script type="text/javascript" src="Vista/js/script.js"></script>
+        <link rel="stylesheet" href="Vista/jquery/jquery-ui.css">
+
+        <!-- Scripts Js -->
+        <script src="Vista/jquery/jquery-3.6.1.min.js"></script>
+        <script src="Vista/js/script.js"></script>        
+        <script src="Vista/jquery/jquery-ui.js"></script> 
     </head>
     <body>
         <div id="contenedor">
@@ -24,7 +30,7 @@
                     <table>
                         <tr>
                             <td>Documento del paciente</td>
-                            <td><input type="text" name="asignarDocumento" id="asignarDocumento" /></td>
+                            <td><input type="text" name="asignarDocumento" id="asignarDocumento" required/></td>
                         </tr>
                         <tr>
                             <td colspan="2">
@@ -35,26 +41,29 @@
                         <tr>
                             <td>Medico</td>
                             <td>
-                                <select id="medico" name="medico">
+                                <select id="medico" name="medico" onchange="cargarHoras()">
                                     <option value="-1" selected="selected">---Seleccionar Medico---</option>
-                                    <option value="12345">12345 Camilo Robledo</option>
-                                    <option value="67890">67890 Esteban Salgado</option>
+                                    <?php 
+                                    while($fila = $result->fetch_object()) {
+                                    ?>
+                                    <option value="<?php echo $fila->MedIdentificacion ?>">
+                                        <?php echo $fila->MedIdentificacion." ".$fila->MedNombres." ".$fila->MedApellidos ?>
+                                    </option>
+                                    <?php
+                                    }
+                                    ?>
                                 </select>
                             </td>
                         </tr>
                         <tr>
                             <td>Fecha</td>
-                            <td><input type="text" name="fecha" id="fecha"/></td>
+                            <td><input type="text" name="fecha" id="fecha" readonly="readonly" onchange="cargarHoras()" required/></td>
                         </tr>
                         <tr>
                             <td>Hora</td>
                             <td>
-                                <select id="hora" name="hora">
+                                <select id="hora" name="hora" onmousedown="seleccionarHora()">
                                     <option value="-1" selected="selected">---Seleccione la hora---</option>
-                                    <option>08:00:00</option>
-                                    <option>08:20:00</option>
-                                    <option>08:40:00</option>
-                                    <option>09:00:00</option>
                                 </select>
                             </td>
                         </tr>
@@ -63,8 +72,15 @@
                             <td>
                                 <select id="consultorio" name="consultorio">
                                     <option value="-1" selected="selected">---Seleccionar el consultorio---</option>
-                                    <option value="0">0 Consultas1</option>
-                                    <option value="1">1 Tratamientos2</option>
+                                    <?php
+                                    while($fila2 = $result2->fetch_object()) {
+                                    ?>
+                                    <option value="<?php echo $fila2->ConNumero ?>">
+                                        <?php echo $fila2->conNumero." ".$fila2->ConNombre ?>
+                                    </option>
+                                    <?php
+                                    }
+                                    ?>
                                 </select>
                             </td>
                         </tr>
@@ -76,6 +92,41 @@
                     </table>
                 </form>                
             </div>
+        </div>
+
+        <!-- Formulario Modal -->
+        <div id="dialog-form" title="Agregar nuevo Paciente">
+            <p class="validateTips">Todos los campos son requeridos.</p>
+            <form action="index.php?accion=ingresarPaciente" method="post" id="agregarPaciente">
+                <table>
+                    <tr>
+                        <td>Documento</td>
+                        <td><input type="text" name="pacDocumento" id="pacDocumento" readonly="readonly"></td>
+                    </tr>
+                    <tr>
+                        <td>Nombres</td>
+                        <td><input type="text" name="pacNombres" id="pacNombres"></td>
+                    </tr>
+                    <tr>
+                        <td>Apellidos</td>
+                        <td><input type="text" name="pacApellidos" id="pacApellidos"></td>
+                    </tr>
+                    <tr>
+                        <td>Fecha Nacimiento</td>
+                        <td><input type="text" name="pacNacimiento" id="pacNacimiento" readonly="readonly"></td>
+                    </tr>
+                    <tr>
+                        <td>Sexo</td>
+                        <td>
+                            <select id="pacSexo" name="pacSexo">
+                                <option value="-1" selected="selected">--Seleccione Sexo</option>
+                                <option>m</option>
+                                <option>f</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>    
+            </form>
         </div>
     </body>
 </html>

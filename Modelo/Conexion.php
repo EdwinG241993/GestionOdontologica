@@ -3,6 +3,7 @@
 /**
  * @author Edwin
  */
+
 class Conexion {
 
     private $mySQLI;
@@ -42,6 +43,5 @@ class Conexion {
     public function obtenerCitaId() {
         return $this->citaId;
     }
-
 }
-?>
+

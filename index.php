@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @author Edwin
+ */
+
+
 error_reporting(E_ALL ^ E_NOTICE);
 
 require_once './Controlador/Controlador.php';
@@ -11,21 +16,41 @@ require_once './Modelo/Conexion.php';
 $controlador = new Controlador();
 
 if ($_GET['accion'] == "asignar") {
-    $controlador->verPagina('./Vista/html/asignar.php');
-} elseif ($_GET['accion'] == "consultar") {
+    $controlador->cargarAsignar();
+} 
+elseif ($_GET['accion'] == "consultar") {
     $controlador->verPagina('./Vista/html/consultar.php');
-} elseif ($_GET['accion'] == "cancelar") {
+} 
+elseif ($_GET['accion'] == "cancelar") {
     $controlador->verPagina('./Vista/html/cancelar.php');
-} elseif ($_GET['accion'] == "guardarCita") {
+} 
+elseif ($_GET['accion'] == "guardarCita") {
     $controlador->agregarCita($_POST["asignarDocumento"], $_POST["medico"], $_POST["fecha"], $_POST["hora"], $_POST["consultorio"]);
-} elseif ($_GET['accion'] == "consultarCita") {
-    $controlador->consultarCitas($_POST["consultarDocumento"]);
-} elseif ($_GET['accion'] == "cancelarCita") {
-    $controlador->cancelarCitas($_POST["cancelarDocumento"]);
-} elseif ($_GET['accion'] == "consultarPaciente") {
-
-    print_r($_GET['documento']);
+} 
+elseif ($_GET['accion'] == "consultarCita") {
+    $controlador->consultarCitas($_GET["consultarDocumento"]);
+} 
+elseif ($_GET['accion'] == "cancelarCita") {
+    $controlador->cancelarCitas($_GET["cancelarDocumento"]);
+} 
+elseif ($_GET['accion'] == "consultarPaciente") {
     $controlador->consultarPaciente($_GET['documento']);
-} else {
+} 
+elseif ($_GET['accion'] == "ingresarPaciente") {
+    $controlador->agregarPaciente($_GET['pacDocumento'], $_GET['pacNombres'], $_GET['pacApellidos'], $_GET['pacNacimiento'], $_GET['pacSexo']);
+} 
+elseif ($_GET['accion'] == "consultarHora"){
+    $controlador->consultarHorasDisponibles($_GET['medico'], $_GET['fecha']);
+} 
+elseif ($_GET['accion'] == "verCita") {
+    $controlador->verCita($_GET["numero"]);
+} 
+elseif ($_GET['accion'] == "confirmarCancelar"){
+    $controlador->confirmarCancelarCita($_GET["numero"]);
+} 
+elseif ($_GET['accion'] == "reporte"){
+    $controlador->generarReporte($_GET["numero"]);
+}
+else {
     $controlador->verPagina('./Vista/html/inicio.php');
 }

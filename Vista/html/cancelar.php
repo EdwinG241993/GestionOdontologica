@@ -4,7 +4,11 @@
     <head>
         <meta charset="UTF-8">
         <title>Sistema de Gestion Odontologica</title>
+
+         <!-- Hojas de Estilos CSS -->
         <link rel="stylesheet" type="text/css" href="Vista/css/estilos.css"/>
+
+        <!-- Scripts Js -->
         <script type="text/javascript" src="Vista/jquery/jquery-3.6.1.min.js"></script>
         <script type="text/javascript" src="Vista/js/script.js"></script>
     </head>
@@ -28,7 +32,7 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <input type="submit" name="cancelarConsultar" value="Consultar" id="cancelarConsultar"/>
+                                <input type="button" value="Consultar" onclick="cancelarCita()" id="cancelarConsultar"/>
                             </td>
                         </tr>
                         <tr>
