@@ -12,6 +12,7 @@ require_once './Modelo/GestorCita.php';
 require_once './Modelo/Cita.php';
 require_once './Modelo/Paciente.php';
 require_once './Modelo/Conexion.php';
+require __DIR__.'/vendor/autoload.php';
 
 $controlador = new Controlador();
 

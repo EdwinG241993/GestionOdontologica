@@ -1,5 +1,9 @@
 <?php
 
+
+
+use Spipu\Html2Pdf\Html2Pdf;
+
 /**
  * @author Edwin
  */
@@ -15,7 +19,7 @@ class Controlador {
         $gestorCita = new GestorCita();
         $id = $gestorCita->agregarCita($cita);
         $result = $gestorCita->consultarCitaPorId($id);
-        require_once "Vista/html/confirmarCita.php";
+        require_once "Vista/html/confirmarCita.php";exit();
     }
     
     public function consultarCitas($doc) {
@@ -82,8 +86,7 @@ class Controlador {
         ob_start();
         require_once"Vista/html/reporteCita.php";
         $content = ob_get_clean();
-        require_once"Vista/pdf/src/Html2Pdf.php";
-        $html2pdf = new HTML2PDF('P', 'A4', 'es');
+        $html2pdf = new HTML2PDF('P', 'A4', 'es', 'true', 'UTF-8');
         $html2pdf->pdf->SetDisplayMode('fullpage');
         $html2pdf->writeHTML($content);
         $html2pdf->Output("Informacion cita.pdf");

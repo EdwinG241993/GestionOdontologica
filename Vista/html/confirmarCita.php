@@ -72,7 +72,7 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <a href="index.php?accion=reporte$numero=<?php echo $fila->CitNumero; ?>" target="blank">Generar Reporte</a>
+                            <a href="index.php?accion=reporte&numero=<?php echo $fila->CitNumero; ?>" target="blank">Generar Reporte</a>
                         </td>
                     </tr>
                 </table>
