@@ -14,12 +14,19 @@ class Controlador {
         require_once $ruta;
     }
     
+    public function identificarUsuario($usu, $pass){
+        $gestorUsuario = new GestorUsuario();
+        $result = $gestorUsuario->identificarUsuario($usu, $pass);
+        require_once "Vista/html/iniciarSesion.php";
+    }
+    
     public function agregarCita($doc, $med, $fec, $hor, $con) {
         $cita = new Cita(null, $fec, $hor, $doc, $med, $con, "Solicitada", "Ninguna");
         $gestorCita = new GestorCita();
         $id = $gestorCita->agregarCita($cita);
         $result = $gestorCita->consultarCitaPorId($id);
-        require_once "Vista/html/confirmarCita.php";exit();
+        require_once "Vista/html/confirmarCita.php";
+        exit();
     }
     
     public function consultarCitas($doc) {

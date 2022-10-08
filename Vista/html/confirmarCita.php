@@ -14,7 +14,7 @@
                 <h1>Sistema de Gestion Odontologica</h1>
             </div>
             <ul id="menu">
-                <li><a href="index.php">Inicio</a></li>
+                <li><a href="index.php?accion=inicio">Inicio</a></li>
                 <li><a href="index.php?accion=asignar">Asignar Cita</a></li>
                 <li><a href="index.php?accion=consultar">Consultar Cita</a></li>
                 <li><a href="index.php?accion=cancelar">Cancelar Cita</a></li>
@@ -35,11 +35,11 @@
                     <tr><th colspan="2">Datos Medico</th></tr>
                     <tr>
                         <td>Documento:</td>
-                        <td><?php echo $fila->MedIdentificacion; ?></td>
+                        <td><?php echo $fila->UsuIdentificacion; ?></td>
                     </tr>
                     <tr>
                         <td>Nombre:</td>
-                        <td><?php echo $fila->MedNombres; ?></td>
+                        <td><?php echo $fila->UsuNombres; ?></td>
                     </tr>
                     <tr><th colspan="2">Datos Cita</th></tr>
                     <tr>

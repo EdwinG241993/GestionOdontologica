@@ -103,5 +103,3 @@ $(document).ready(function () {
     maxDate: 0
   });
 });
-
-

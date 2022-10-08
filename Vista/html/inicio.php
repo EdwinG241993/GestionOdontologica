@@ -13,10 +13,11 @@
             <div id="encabezado">
             </div>
             <ul id="menu">
-                <li class="activa"><a href="index.php">Inicio</a></li>
+                <li class="activa"><a href="index.php?accion=inicio">Inicio</a></li>
                 <li><a href="index.php?accion=asignar">Asignar Cita</a></li>
                 <li><a href="index.php?accion=consultar">Consultar Cita</a></li>
                 <li><a href="index.php?accion=cancelar">Cancelar Cita</a></li>
+                <li><a href="index.php?accion=administrar">Administrar</a></li>
             </ul>
             <div id="contenido">
                 <h2>Informacion General</h2>

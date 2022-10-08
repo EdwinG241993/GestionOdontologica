@@ -26,10 +26,10 @@ class GestorCita {
     public function consultarCitaPorId($id) {
         $conexion = new Conexion();
         $conexion->abrir();
-        $sql = "SELECT pacientes.*, medicos.*, consultorios.*, citas.*
-                FROM pacientes, medicos, consultorios, citas
+        $sql = "SELECT pacientes.*, usuarios.*, consultorios.*, citas.*
+                FROM pacientes, usuarios, consultorios, citas
                 WHERE citas.CitPaciente = pacientes.PacIdentificacion
-                AND citas.CitMedico = medicos.MedIdentificacion
+                AND citas.CitMedico = usuarios.UsuId
                 AND citas.CitConsultorio = consultorios.ConNumero
                 AND citas.CitNumero = $id";
         $conexion->consulta($sql);
@@ -76,7 +76,7 @@ class GestorCita {
     public function consultarMedicos() {
         $conexion = new Conexion();
         $conexion->abrir();
-        $sql = "SELECT * FROM medicos";
+        $sql = "SELECT UsuId, UsuIdentificacion, UsuNombres, UsuApellidos FROM usuarios where UsuRol = 'medico'";
         $conexion->consulta($sql);
         $result = $conexion->obtenerResult();
         $conexion->cerrar();

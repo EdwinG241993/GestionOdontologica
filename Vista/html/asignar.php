@@ -19,10 +19,11 @@
             <div id="encabezado">
             </div>
             <ul id="menu">
-                <li><a href="index.php">Inicio</a></li>
+                <li><a href="index.php?accion=inicio">Inicio</a></li>
                 <li class="activa"><a href="index.php?accion=asignar">Asignar Cita</a></li>
                 <li><a href="index.php?accion=consultar">Consultar Cita</a></li>
                 <li><a href="index.php?accion=cancelar">Cancelar Cita</a></li>
+                <li><a href="index.php?accion=administrar">Administrar</a></li>
             </ul>
             <div id="contenido">
                 <h2>Asignar Cita</h2>
@@ -46,8 +47,8 @@
                                     <?php 
                                     while($fila = $result->fetch_object()) {
                                     ?>
-                                    <option value="<?php echo $fila->MedIdentificacion ?>">
-                                        <?php echo $fila->MedIdentificacion." ".$fila->MedNombres." ".$fila->MedApellidos ?>
+                                    <option value="<?php echo $fila->UsuId ?>">
+                                        <?php echo $fila->UsuIdentificacion." ".$fila->UsuNombres." ".$fila->UsuApellidos ?>
                                     </option>
                                     <?php
                                     }
