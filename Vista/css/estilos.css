@@ -68,6 +68,140 @@ h2 {
 }
 
 table {
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 5px 5px;
 }
+
+#identificacion {
+    -webkit-appearance: textfield !important;
+    margin: 0;
+    -moz-appearance: textfield !important;
+}
+
+/*Tabs*/
+[data-tab-info] {
+    display: none;
+}
+
+.active[data-tab-info] {
+    display: block;
+}
+
+.tab-content {
+    font-size: 1em;
+    font-family: sans-serif;
+}
+
+.tabs {
+    font-size: 1em;
+    display: flex;
+    margin: 0;
+}
+
+.tabs span {
+    background-color: #0075DD;
+    padding: 5px;
+    margin-right: 10px;
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.tabs span:active {
+    background-color: #7092BE;
+}
+
+.tabs span:hover {
+    background-color: #7092BE;
+    cursor: pointer;
+}
+
+/*Info*/
+
+#pass_info {
+    position: absolute;
+    bottom: -112px;
+    /* IE Specific */
+    right: 510px;
+    width: 250px;
+    padding: 5px;
+    background: #fefefe;
+    font-size: .875em;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px #ccc;
+    border: 1px solid #ddd;
+}
+
+#pass_info::before {
+    content: "\25B2";
+    position: absolute;
+    top: -12px;
+    left: 45%;
+    font-size: 14px;
+    line-height: 14px;
+    color: #ddd;
+    text-shadow: none;
+    display: block;
+}
+
+#ver_info {
+    color: red;
+    position: absolute;
+    bottom: -15px;
+    /* IE Specific */
+    right: 230px;
+    width: 250px;
+    padding: 5px;
+    background: #fefefe;
+    font-size: .875em;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px #ccc;
+    border: 1px solid #ddd;
+}
+
+#ver_info::before {
+    content: "\25B2";
+    position: absolute;
+    top: -12px;
+    left: 45%;
+    font-size: 14px;
+    line-height: 14px;
+    color: #ddd;
+    text-shadow: none;
+    display: block;
+}
+
+#info_email {
+    color: red;
+    position: absolute;
+    bottom: 45px;
+    /* IE Specific */
+    right: 230px;
+    width: 250px;
+    padding: 5px;
+    background: #fefefe;
+    font-size: .875em;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px #ccc;
+    border: 1px solid #ddd;
+}
+
+#info_email::before {
+    content: "\25B2";
+    position: absolute;
+    top: -12px;
+    left: 45%;
+    font-size: 14px;
+    line-height: 14px;
+    color: #ddd;
+    text-shadow: none;
+    display: block;
+}
+
+.valid {
+    color: green;
+}
+
+.invalid {
+    color: red;
+}
+
 

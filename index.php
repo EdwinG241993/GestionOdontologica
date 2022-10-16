@@ -41,7 +41,10 @@ elseif ($_GET['accion'] == "cancelar") {
 }
 elseif ($_GET['accion'] == "administrar") {
     $controlador->verPagina('./Vista/html/administrar.php');
-} 
+}
+elseif ($_GET['accion'] == "guardarUsuario") {
+    $controlador->agregarUsuario($_POST["identificacion"], $_POST["nombre"], $_POST["apellido"], $_POST["email"], $_POST["usuario"], $_POST["clave"], $_POST["rol"]);
+}
 elseif ($_GET['accion'] == "guardarCita") {
     $controlador->agregarCita($_POST["asignarDocumento"], $_POST["medico"], $_POST["fecha"], $_POST["hora"], $_POST["consultorio"]);
 } 

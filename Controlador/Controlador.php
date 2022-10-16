@@ -28,7 +28,7 @@ class Controlador {
         require_once "Vista/html/confirmarCita.php";
         exit();
     }
-    
+
     public function consultarCitas($doc) {
         $gestorCita = new GestorCita();
         $result = $gestorCita->consultarCitasPorDocumento($doc);
@@ -56,6 +56,16 @@ class Controlador {
         } else {
             echo "Error al Insertar Paciente";
         }  
+    }
+    
+    public function agregarUsuario($id, $nom, $ape, $eml, $usu, $pass, $rol) {
+        $usuario = new Usuario(null, $id, $nom, $ape, $eml, $usu, $pass, $rol);
+        $gestorUsuario = new GestorUsuario();
+        $registros = $gestorUsuario->agregarUsuario($usuario);
+        $url = $_SERVER['HTTP_REFERER'];
+        header("LOCATION:$url");
+        die();
+        require_once "Vista/html/administrar.php";
     }
     
     public function cargarAsignar() {
