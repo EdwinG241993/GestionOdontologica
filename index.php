@@ -1,8 +1,15 @@
 <?php
 
+require_once './Controlador/VistaControlador.php';
+require_once './Core/ConfigApp.php';
+
+$vistaCtr = new VistaControlador();
+
+$vistaCtr->ObtenerPlantillaCtr();
+
 /**
  * @author Edwin
- */
+
 
 error_reporting(E_ALL ^ E_NOTICE);
 
@@ -75,3 +82,4 @@ elseif ($_GET['accion'] == "reporte"){
 else {
     $controlador->verPagina('./Vista/html/login.php');  #Cambio de pagina inicio.php a login.php
 }
+ */
