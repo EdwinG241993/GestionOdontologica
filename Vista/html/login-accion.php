@@ -1,6 +1,7 @@
+<input type="button" class="button" id="dalert_button" value="DAlert" />
 <div id="contenido">
     <h2>Login Gestion Odontologica</h2>
-    <form action="index.php?accion=iniciarSesion" method="POST" autocomplete="off">
+    <form action="" method="POST" data-form="save" autocomplete="off" class="Form_Ajax">
         <div>
             <label>Usuario:</label>
             <div>

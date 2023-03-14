@@ -22,6 +22,10 @@
             }
             ?>
         </div>
+            <script src="<?php echo SERVER; ?>Vista/js/script.js"></script>
+        <script>
+            $.material.init();
+        </script>
     </body>
 </html>
 

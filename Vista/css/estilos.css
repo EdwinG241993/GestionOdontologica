@@ -30,7 +30,7 @@ div#contenido {
     padding: 10px 15px;
 }
 
-h2 {
+h2, h3 {
     color: #0075FF;
     border-bottom: #CFDFB5 1px solid;
 }
@@ -76,6 +76,10 @@ table {
     -webkit-appearance: textfield !important;
     margin: 0;
     -moz-appearance: textfield !important;
+}
+
+.infoper {
+    margin: 10px;
 }
 
 /*Tabs*/

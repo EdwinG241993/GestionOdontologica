@@ -1,3 +1,91 @@
+$(document).ready(function () {
+    $('.needs-validation').submit(function (e) {
+        e.preventDefault();
+
+        var pass = true;
+        var forms = document.querySelectorAll('.needs-validation');
+
+        // Bucle sobre ellos y evitar el envío
+        Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                        pass = false;
+                    } else {
+                        pass = true;
+                    }
+                    form.classList.add('was-validated');
+                });
+        console.log("pass 0 = " + pass);
+        
+        if (pass) {
+            var form = $(this);
+            var type = form.attr('data-form');
+            var action = form.attr('action');
+            var method = form.attr('method');
+            var request = form.children('.RequestAjax');
+            var msjError = "<script> swal('Ocurrio un erorr inesperado', 'Por favor recargue la pagina', 'error'); </script>";
+            var formdata = new FormData(this);
+            var textAlert;
+            if (type == 'guardar') {
+                textAlert = "Los datos seran almacenados en el sistema";
+            } else if (type == 'delete') {
+                textAlert = "Los datos seran eliminados del sistema";
+            } else if (type == 'update') {
+                textAlert = "Los datos seran actualizados en el sistema";
+            } else {
+                textAlert = "Quieres realizar la operacion solicitada";
+            }
+
+            swal({
+                title: "¿Estas seguro?",
+                text: textAlert,
+                type: "question",
+                showCancelButton: true,
+                confirmButtonText: "Aceptar",
+                cancelButtonText: "Cancelar"
+            }).then(function () {
+                $.ajax({
+                    type: method,
+                    url: action,
+                    data: formdata ? formdata : form.serialize(),
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    xhr: function () {
+                        var xhr = new window.XMLHttpRequest();
+                        xhr.upload.addEventListener("progress", function (evt) {
+                            if (evt.lengthComputable) {
+                                var percentComplete = evt.loaded / evt.total;
+                                percentComplete = parseInt(percentComplete * 100);
+                                if (percentComplete < 100) {
+                                    request.append('<p class="text-center">Procesando... (' + percentComplete + '%)</p><div class="progress progress-striped active"><div class="progress-bar progress-bar-info" style="width: ' + percentComplete + '%;"></div></div>');
+                                } else {
+                                    request.html('<p class="text-center"></p>');
+                                }
+                            }
+                        }, false);
+                        return xhr;
+                    },
+                    success: function (data) {
+                        //console.log(data);
+                        request.html(data);
+                    },
+                    error: function () {
+                        console.log("Mal");
+                        request.html(msjError);
+                    }
+                });
+            });
+        } else {
+            swal('Error', 'Verifique los campos requeridos y su formato', 'error');
+        }
+
+    });
+});
+
+
 function consultarPaciente() {
     url = "index.php?accion=consultarPaciente&documento=" + $("#asignarDocumento").prop("value", );
     $("#paciente").load(url);
@@ -5,8 +93,7 @@ function consultarPaciente() {
 
 $(function () {
     var dialog, form,
-
-    documento = "" + $("#asignarDocumento").prop("value");
+            documento = "" + $("#asignarDocumento").prop("value");
     $("pacNacimiento").datepicker();
 
     //Funcion insertar paciente
@@ -105,7 +192,6 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-
     $("#clave").focus(function () {
         $("#pass_info").removeAttr("hidden");
         $("#clave").keyup(function () {

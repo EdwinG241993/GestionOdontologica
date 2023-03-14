@@ -3,58 +3,102 @@
 /**
  * @author Edwin
  */
-
 class Usuario {
-    
-    private $id;
+
     private $identificacion;
     private $nombre;
     private $apellido;
+    private $telefono;
     private $email;
-    private $usuario;
-    private $password;
-    private $rol;
+    private $genero;
+    private $direccion;
+    private $cuenta;
     
-    public function __construct($id, $ident, $nom, $ape, $eml, $usu, $pass, $rol) {
-        $this->id = $id;
-        $this->identificacion = $ident;
+    private $codigo;
+    private $privilegio;
+    private $usuario;
+    private $clave;
+    private $estado;
+    private $tipo;
+    private $foto;
+
+    public function __construct($id, $nom, $ape, $tel, $eml, $gen, $dir, $ctn, $cod, $pri, $usu, $clv, $est, $tipo, $foto) {
+        $this->identificacion = $id;
         $this->nombre = $nom;
         $this->apellido = $ape;
+        $this->telefono = $tel;
         $this->email = $eml;
+        $this->genero = $gen;
+        $this->direccion = $dir;
+        $this->cuenta = $ctn;
+        
+        $this->codigo = $cod;
+        $this->privilegio = $pri;
         $this->usuario = $usu;
-        $this->password = $pass;
-        $this->rol = $rol;
+        $this->clave = $clv;
+        $this->estado = $est;
+        $this->tipo = $tipo;
+        $this->foto = $foto;
     }
     
-    public function obtenerId() {
-        return $this->id;
+    protected function obtenerCodigo() {
+        return $this->codigo;
     }
     
-    public function obtenerIdentificacion() {
-        return $this->identificacion;
+    protected function obtenerPrivilegio() {
+        return $this->privilegio;
     }
     
-    public function obtenerNombre() {
-        return $this->nombre;
-    }
-    
-    public function obtenerApellido() {
-        return $this->apellido;
-    }
-    
-    public function obtenerEmail() {
-        return $this->email;
-    }
-    
-    public function obtenerUsuario() {
+    protected function obtenerUsuario() {
         return $this->usuario;
     }
     
-    public function obtenerPassword() {
-        return $this->password;
+    protected function obtenerClave() {
+        return $this->clave;
     }
     
-    public function obtenerRol() {
-        return $this->rol;
+    protected function obtenerEstado() {
+        return $this->estado;
     }
+    
+    protected function obtenerTipo() {
+        return $this->tipo;
+    }
+    
+    protected function obtenerFoto() {
+        return $this->foto;
+    }
+    
+    protected function obtenerIdentificacion() {
+        return $this->identificacion;
+    }
+
+    protected function obtenerNombre() {
+        return $this->nombre;
+    }
+
+    protected function obtenerApellido() {
+        return $this->apellido;
+    }
+
+    protected function obtenerTelefono() {
+        return $this->telefono;
+    }
+
+    protected function obtenerEmail() {
+        return $this->email;
+    }
+
+    protected function obtenerGenero() {
+        return $this->genero;
+    }
+
+    protected function obtenerDireccion() {
+        return $this->direccion;
+    }
+
+    protected function obtenerCuenta() {
+        return $this->cuenta;
+    }
+
 }
