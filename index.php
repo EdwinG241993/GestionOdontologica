@@ -1,11 +1,37 @@
 <?php
 
-require_once './Controlador/VistaControlador.php';
-require_once './Core/ConfigApp.php';
+/**
+ * Description of ConnectionDB
+ *
+ * @author Edwin
+ */
+require_once './controller/ViewController.php';
+require_once './core/ConfigApp.php';
 
-$vistaCtr = new VistaControlador();
+$viewCtr = new ViewController();
 
-$vistaCtr->ObtenerPlantillaCtr();
+$viewCtr->getTemplateCtr();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /**
  * @author Edwin
